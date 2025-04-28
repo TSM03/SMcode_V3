@@ -1,0 +1,90 @@
+/* Container for the product grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual product items */
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+/* Product images */
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Product titles */
+.product-item h2 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* Product prices */
+.price {
+  color: #b12704;
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+/* Add to cart button */
+.product-item button {
+  background-color: #f0c14b;
+  border: 1px solid #a88734;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Hover effect for product items */
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* Parent container */
+.container {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Optional: Styling the inner container */
+.inner-container {
+  /* Define desired width and height */
+  width: 80%;
+  max-width: 1200px;
+
+  /* Additional styling as needed */
+}
+
+
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 11, 2025, 12:03:04 AM
+    Author     : tsm11
+*/
+
