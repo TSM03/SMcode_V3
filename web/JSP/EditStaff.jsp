@@ -156,12 +156,14 @@
                                 type="password" 
                                 id="passwordInput" 
                                 name="password" 
+                                value="" 
                                 placeholder="Enter new password only if you want to change"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" 
+                                onkeyup="checkPasswordInput()"
                             />
 
                             <div id="passwordMessage" style="display: none;">
-                                <h3 style="font-size: 15px;">Password must contain the following:</h3><br>
+                                <h3 style="font-size: 15px;">Password must contain the following:</h3>
                                 <p id="letter" class="invalid" style="font-size: 13px;">&#10006; A <b>lowercase</b> letter</p>
                                 <p id="capital" class="invalid" style="font-size: 13px;">&#10006; A <b>capital (uppercase)</b> letter</p>
                                 <p id="number" class="invalid" style="font-size: 13px;">&#10006; A <b>number</b></p>
@@ -171,7 +173,7 @@
 
                         <div class="form-group">
                             <label for="birth">Birth Date</label>
-                            <input type="date" id="birth" name="birth" class="custom-date" value="<%= user.getBirth() %>" required>
+                            <input type="date" id="birth" name="birth" value="<%= user.getBirth() %>" required class="custom-date">
                             <span id="birthValidation" style="margin-top: 7px;"></span>
                         </div>
                     </div>               
@@ -184,6 +186,17 @@
     <% } else { %>
         <p style="color: red;">⚠️ Staff not found.</p>
     <% } %>
+    
+    <script>
+    // On form submission, check if password is empty and replace with original password
+    $('form').on('submit', function() {
+        var password = $('#passwordInput').val();
+        if (password === "") {
+            // If password is empty, don't update password field
+            $('#passwordInput').val($('#originalPassword').val());
+        }
+    });
+    </script>
     
     <!-- Full name validation (No special character)-->
     <script>
@@ -376,6 +389,16 @@
 
     <!-- Password validation (Meet with requirement)-->
     <script>
+        function checkPasswordInput() {
+            var passwordInput = document.getElementById("passwordInput");
+            var originalPassword = document.getElementById("originalPassword").value;
+
+            // If the password input is empty, keep the original password in the hidden input
+            if (passwordInput.value.trim() === "") {
+                passwordInput.value = originalPassword; // Ensure the hidden field value remains the original password
+            }
+        }
+        
         $(document).ready(function(){
             $('#passwordInput').on('keyup', function(){
                 var password = $(this).val();

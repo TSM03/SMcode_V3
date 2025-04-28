@@ -19,6 +19,6 @@ public class LogoutServlet extends HttpServlet {
         }
 
         // 跳转到 GuestHome.jsp
-        response.sendRedirect("/JSP/GuestHome.jsp");
+        response.sendRedirect("/sohai/JSP/GuestHome.jsp");
     }
 }

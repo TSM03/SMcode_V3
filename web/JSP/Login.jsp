@@ -49,7 +49,8 @@
                 
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                     <div id="passwordValidation" class="validation-message"></div> 
                 </div>
                 
@@ -192,13 +193,13 @@
 
                             switch (role) {
                                 case "manager":
-                                    window.location.href = "/JSP/AdminPanel.jsp";  // 重定向到管理员面板
+                                    window.location.href = "/sohai/JSP/AdminPanel.jsp";  // 重定向到管理员面板
                                     break;
                                 case "staff":
-                                    window.location.href = "/JSP/StaffPanel.jsp";  // 重定向到员工面板
+                                    window.location.href = "/sohai/JSP/StaffPanel.jsp";  // 重定向到员工面板
                                     break;
                                 case "customer":
-                                    window.location.href = "/JSP/UserHome.jsp";  // 重定向到用户主页
+                                    window.location.href = "/sohai/JSP/UserHome.jsp";  // 重定向到用户主页
                                     break;
                                 default:
                                     alert("Unknown role: " + role);
